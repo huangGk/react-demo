@@ -1,0 +1,10 @@
+.ball-enter-active {
+  transition: 0.8s cubic-bezier(0.28, 0.83, 0.72, 1.39);
+  /*position: absolute;*/
+  /*z-index: 100;*/
+}
+.ball-enter-active .mask-item {
+  transition: 0.8s cubic-bezier(0, 0, 1, 1);
+  /*position: absolute;*/
+  /*z-index: 100;*/
+}
