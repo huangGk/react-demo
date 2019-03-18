@@ -2,23 +2,56 @@ import React, { Component } from 'react';
 import Prompt from '../../common/prompt';
 import { connect } from 'react-redux';
 import { selectors, actionCreate } from './store';
+import { Link } from 'react-router-dom';
+import { actionCreate as HeaderActionCreate } from '../../common/header/store';
 
 import './style.css';
+import { fromJS } from 'immutable';
 
 class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgIndex: 0
+      imgIndex: 0,
+      count: 1
     };
   }
   componentDidMount() {
     this.props.getSkuId(this.props.match.params.id); // 获取商品id
     this.props.getList(); // 商品详细信息
   }
+  addCount = count => {
+    this.setState(() => {
+      count++;
+      if (count > this.props.detail.limit_num) {
+        count = this.props.detail.limit_num;
+      }
+      return {
+        count
+      };
+    });
+  };
+  subCount = count => {
+    this.setState(() => {
+      count--;
+      if (count < 1) {
+        count = 1;
+      }
+      return {
+        count
+      };
+    });
+  };
+  changeImgIndex = index => {
+    this.setState(() => {
+      return {
+        imgIndex: index
+      };
+    });
+  };
   render() {
-    const { detail } = this.props;
-    const { imgIndex } = this.state;
+    const { detail, addCarPanelHandle, getSkuId } = this.props;
+    const { imgIndex, count } = this.state;
     if (!detail) {
       return null;
     }
@@ -35,6 +68,9 @@ class Item extends Component {
                         <li
                           className={imgIndex === index ? 'on' : ''}
                           key={index}
+                          onClick={() => {
+                            this.changeImgIndex(index);
+                          }}
                         >
                           <img
                             src={`${item}?x-oss-process=image/resize,w_54/quality,Q_90/format,webp`}
@@ -83,12 +119,21 @@ class Item extends Component {
                   <ul className="params-colors">
                     {detail.sku_list.map(item => {
                       return (
-                        <li className="cur">
-                          <a>
+                        <li
+                          className={imgIndex === item.id ? 'cur' : ''}
+                          key={item.id}
+                        >
+                          <Link
+                            to={`/item/${item.id}`}
+                            title={item.color}
+                            onClick={() => {
+                              getSkuId(item.id);
+                            }}
+                          >
                             <i>
-                              <img src="" alt="" />
+                              <img src={item.image} alt="" />
                             </i>
-                          </a>
+                          </Link>
                         </li>
                       );
                     })}
@@ -98,16 +143,37 @@ class Item extends Component {
                   <div className="params-name">数量</div>
                   <div className="params-detail clear">
                     <div className="item-num js-select-quantity">
-                      <span className="down down-disabled">-</span>
-                      <span className="num">1</span>
-                      <span className="up up-disabled">+</span>
+                      <span
+                        onClick={() => {
+                          this.subCount(count);
+                        }}
+                        className={count <= 1 ? 'down down-disabled' : 'down'}
+                      >
+                        -
+                      </span>
+                      <span className="num">{count}</span>
+                      <span
+                        className={
+                          count >= detail.limit_num ? 'up up-disabled' : 'up'
+                        }
+                        onClick={() => {
+                          this.addCount(count);
+                        }}
+                      >
+                        +
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="sku-status">
                 <div className="cart-operation-wrapper clearfix">
-                  <span className="blue-title-btn js-add-cart">
+                  <span
+                    className="blue-title-btn js-add-cart"
+                    onClick={() => {
+                      addCarPanelHandle(detail, count);
+                    }}
+                  >
                     <a>加入购物车</a>
                   </span>
                   <span className="gray-title-btn">
@@ -137,6 +203,17 @@ const mapDispatchToProps = dispatch => {
     },
     getList: () => {
       dispatch(actionCreate.getList());
+    },
+    addCarPanelHandle: (detail, count) => {
+      detail = fromJS(detail);
+      dispatch(
+        HeaderActionCreate.addcarPanel(
+          detail.merge({
+            count,
+            checked: true
+          })
+        )
+      );
     }
   };
 };

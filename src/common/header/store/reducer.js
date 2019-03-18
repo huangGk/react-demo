@@ -47,7 +47,44 @@ export default (state = defaultState, action) => {
     case constants.hideCarHandle:
       return state.set('cartShow', false);
     case constants.closeDialog:
-      return state.set('maxOff', false)
+      return state.set('maxOff', false);
+    case constants.subCarPanel: // 减少商品数量
+      let subRes = state
+        .get('carPanelData')
+        .toJS()
+        .map(item => {
+          if (item.sku_id === action.sku_id) {
+            if (item.count <= 1) {
+              return item;
+            }
+            item.count--;
+          }
+          return item;
+        });
+      return state.set('carPanelData', fromJS(subRes));
+    case constants.plusCarPanelData: // 添加商品数量
+      let plus = state
+        .get('carPanelData')
+        .toJS()
+        .map(item => {
+          if (item.sku_id === action.sku_id) {
+            if (item.count >= item.limit_num) {
+              return item;
+            }
+            item.count++;
+          }
+          return item;
+        });
+      return state.set('carPanelData', fromJS(plus));
+    case constants.checkItem: // 切换商品选中状态
+      let temp = state.get('carPanelData').toJS()
+      temp.forEach(item => {
+        if (item.sku_id === action.sku_id) {
+          item.checked = !item.checked
+        }
+      })
+      return state.set('carPanelData', fromJS(temp));
+    
     default:
       return state;
   }

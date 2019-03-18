@@ -16,6 +16,11 @@ const Item = Loadable({
   loading: Loading
 });
 
+const Cart = Loadable({
+  loader: () => import('./page/cart'),
+  loading: Loading
+});
+
 class App extends Component {
   render() {
     return (
@@ -26,6 +31,7 @@ class App extends Component {
               <HeaderNav />
               <Route path="/" exact component={Shop} />
               <Route path="/item/:id" component={Item} />
+              <Route path="/cart" component={Cart} />
             </div>
           </BrowserRouter>
         </div>
