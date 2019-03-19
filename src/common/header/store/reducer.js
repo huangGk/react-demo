@@ -8,13 +8,13 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case constants.delcarPanel:
+    case constants.delcarPanel: // 删除购物商品
       let carPanel = state.get('carPanelData').toJS();
       return state.set(
         'carPanelData',
         fromJS(carPanel.filter(item => item.sku_id !== action.sku_id))
       );
-    case constants.addcarPanel:
+    case constants.addcarPanel: // 添加商品到购物车里面
       action.data = action.data.toJS();
       let data = state.get('carPanelData').toJS();
       let isFirst = true;
@@ -42,11 +42,11 @@ export default (state = defaultState, action) => {
         cartShow: true,
         maxOff: ismaxOff
       });
-    case constants.showCarHandle:
+    case constants.showCarHandle: // 显示购物车
       return state.set('cartShow', true);
-    case constants.hideCarHandle:
+    case constants.hideCarHandle: // 隐藏购物车
       return state.set('cartShow', false);
-    case constants.closeDialog:
+    case constants.closeDialog: // 关闭弹层
       return state.set('maxOff', false);
     case constants.subCarPanel: // 减少商品数量
       let subRes = state
@@ -77,14 +77,25 @@ export default (state = defaultState, action) => {
         });
       return state.set('carPanelData', fromJS(plus));
     case constants.checkItem: // 切换商品选中状态
-      let temp = state.get('carPanelData').toJS()
+      let temp = state.get('carPanelData').toJS();
       temp.forEach(item => {
         if (item.sku_id === action.sku_id) {
-          item.checked = !item.checked
+          item.checked = !item.checked;
         }
-      })
+      });
       return state.set('carPanelData', fromJS(temp));
-    
+    case constants.delCheckAll: // 删除选中商品
+      return state.set(
+        'carPanelData',
+        state.get('carPanelData').filter(item => !item.get('checked'))
+      );
+    case constants.checkAll: // 选中所有商品
+      return state.set(
+        'carPanelData',
+        state
+          .get('carPanelData')
+          .map(item => item.set('checked', !action.isChecked))
+      );
     default:
       return state;
   }

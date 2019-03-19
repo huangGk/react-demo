@@ -60,7 +60,9 @@ class Cart extends Component {
       subCarPanel,
       plusCarPanelData,
       delCarPanelItem,
-      checkItem
+      checkItem,
+      delCheckAll,
+      checkAll
     } = this.props;
     return (
       <div id="main" className="hander-car">
@@ -79,7 +81,7 @@ class Cart extends Component {
                     delCarPanelItem={delCarPanelItem}
                     checkItem={checkItem}
                   />
-                  <CartBottom />
+                  <CartBottom delCheckAll={delCheckAll} checkAll={checkAll} />
                 </div>
               ) : (
                 <Emptylabel />
@@ -101,16 +103,28 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     subCarPanel: sku_id => {
+      // 减少商品数量
       dispatch(actionCreate.subCarPanel(sku_id));
     },
     plusCarPanelData: sku_id => {
+      // 添加商品数量
       dispatch(actionCreate.plusCarPanelData(sku_id));
     },
     delCarPanelItem: sku_id => {
+      // 删除商品
       dispatch(actionCreate.delCarPanelItem(sku_id));
     },
     checkItem: sku_id => {
-      dispatch(actionCreate.checkItem(sku_id))
+      // 选中商品
+      dispatch(actionCreate.checkItem(sku_id));
+    },
+    delCheckAll: () => {
+      // 删除选中商品
+      dispatch(actionCreate.delCheckAll());
+    },
+    checkAll: isChecked => {
+      // 全选或者反选
+      dispatch(actionCreate.checkAll(isChecked));
     }
   };
 };

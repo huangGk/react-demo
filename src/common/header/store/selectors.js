@@ -25,3 +25,60 @@ export const totlePrice = createSelector(
     return price;
   }
 );
+
+export const checkPrice = createSelector(
+  // 计算选中商品总价
+  carPanel,
+  carPanelData => {
+    let sumPrice = 0;
+    carPanelData.forEach(item => {
+      if (item.get('checked')) {
+        sumPrice +=
+          parseFloat(item.get('price')) * parseFloat(item.get('count'));
+      }
+    });
+    return sumPrice;
+  }
+);
+
+export const checkedcommodity = createSelector(
+  // 当前选中的商品
+  carPanel,
+  carPanelData => {
+    let checkedGoods = [];
+    carPanelData.forEach(item => {
+      if (item.get('checked')) {
+        checkedGoods.push(item.toJS());
+      }
+    });
+    return checkedGoods;
+  }
+);
+
+export const checkCount = createSelector(
+  // 选中的商品数量
+  carPanel,
+  carPanelData => {
+    let sumCount = 0;
+    carPanelData.forEach(item => {
+      if (item.get('checked')) {
+        sumCount += parseFloat(item.get('count'));
+      }
+    });
+    return sumCount;
+  }
+);
+
+export const allChecked = createSelector(
+  // 判断商品是否全部选中
+  carPanel,
+  carPanelData => {
+    let allChecked = true;
+    carPanelData.forEach(item => {
+      if (!item.get('checked')) {
+        allChecked = false;
+      }
+    });
+    return allChecked;
+  }
+);

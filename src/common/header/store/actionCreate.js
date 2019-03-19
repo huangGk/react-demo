@@ -60,3 +60,18 @@ export const checkItem = sku_id => {
     sku_id
   }
 }
+
+export const checkAll = isChecked => {
+  // 全选或者反选
+  return {
+    type: constants.checkAll,
+    isChecked
+  }
+}
+
+export const delCheckAll = () => {
+  // 删除选中的商品
+  return {
+    type: constants.delCheckAll
+  }
+}

@@ -6,3 +6,5 @@ export const closeDialog = 'Header/closeDialog';
 export const subCarPanel = 'Header/subCarPanel';
 export const plusCarPanelData = 'Header/plusCarPanelData';
 export const checkItem = 'Header/checkItem';
+export const checkAll = 'Header/checkAll';
+export const delCheckAll = 'Header/delCheckAll';
