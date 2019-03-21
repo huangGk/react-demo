@@ -69,6 +69,18 @@ export const checkCount = createSelector(
   }
 );
 
+export const freight = createSelector(
+  // 计算运费
+  [checkPrice, checkCount],
+  (sumPrice, sumCount) => {
+    let freight = 8; // 基础运费
+    if (sumPrice > 88 || !sumCount) {
+      freight = 0;
+    }
+    return freight;
+  }
+);
+
 export const allChecked = createSelector(
   // 判断商品是否全部选中
   carPanel,

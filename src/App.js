@@ -21,6 +21,16 @@ const Cart = Loadable({
   loading: Loading
 });
 
+const CheckOut = Loadable({
+  loader: () => import('./page/checkout'),
+  loading: Loading
+})
+
+const Payment = Loadable({
+  loader: () => import('./page/payment'),
+  loading: Loading
+})
+
 class App extends Component {
   render() {
     return (
@@ -32,6 +42,8 @@ class App extends Component {
               <Route path="/" exact component={Shop} />
               <Route path="/item/:id" component={Item} />
               <Route path="/cart" component={Cart} />
+              <Route path="/checkout" component={CheckOut} />
+              <Route path="/payment/:orderId" component={Payment} />
             </div>
           </BrowserRouter>
         </div>
