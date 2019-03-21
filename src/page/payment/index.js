@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { actionCreate } from '../checkout/store'
 import './style.css';
 
 class Payment extends Component {
@@ -20,6 +22,15 @@ class Payment extends Component {
       });
     }
   }
+
+  payNowHandle = () => {
+    const { payNow, history } = this.props;
+    const { orderInfo } = this.state;
+    history.push(`/account`); // 跳转到account路由
+    alert(`支付成功${orderInfo.price + orderInfo.freight}元`);
+    payNow(orderInfo.orderId);
+  };
+
   render() {
     const { orderInfo } = this.state;
     return (
@@ -40,7 +51,7 @@ class Payment extends Component {
             </div>
             <div className="box-inner payment-checkout-panel clear">
               {!orderInfo.isPay ? (
-                <span className="jianguo-blue-main-btn big-main-btn js-payment-order">
+                <span className="jianguo-blue-main-btn big-main-btn js-payment-order" onClick={this.payNowHandle}>
                   <a>现在支付</a>
                 </span>
               ) : (
@@ -138,13 +149,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    payNow: () => {
-      dispatch();
+    payNow: orderId => {
+      dispatch(actionCreate.payNow(orderId));
     }
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Payment);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Payment)
+);

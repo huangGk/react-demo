@@ -39,3 +39,11 @@ export const submitOrder = data => {
     data: fromJS(data) // 把普通对象转换成immutable对象
   }
 }
+
+export const payNow = orderId => {
+  // 订单支付
+  return {
+    type: constants.isPay,
+    orderId
+  }
+}

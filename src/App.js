@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderNav from './common/header';
 import './reset.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from './loading';
 import { Provider } from 'react-redux';
@@ -24,12 +24,17 @@ const Cart = Loadable({
 const CheckOut = Loadable({
   loader: () => import('./page/checkout'),
   loading: Loading
-})
+});
 
 const Payment = Loadable({
   loader: () => import('./page/payment'),
   loading: Loading
-})
+});
+
+const Account = Loadable({
+  loader: () => import('./page/account'),
+  loading: Loading
+});
 
 class App extends Component {
   render() {
@@ -39,11 +44,14 @@ class App extends Component {
           <BrowserRouter>
             <div>
               <HeaderNav />
-              <Route path="/" exact component={Shop} />
-              <Route path="/item/:id" component={Item} />
-              <Route path="/cart" component={Cart} />
-              <Route path="/checkout" component={CheckOut} />
-              <Route path="/payment/:orderId" component={Payment} />
+              <Switch>
+                <Route path="/" exact component={Shop} />
+                <Route path="/item/:id" component={Item} />
+                <Route path="/cart" component={Cart} />
+                <Route path="/checkout" component={CheckOut} />
+                <Route path="/payment/:orderId" component={Payment} />
+                <Route path="/Account" component={Account} />
+              </Switch>
             </div>
           </BrowserRouter>
         </div>

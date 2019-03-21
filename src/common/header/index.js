@@ -24,9 +24,11 @@ const HeaderNav = () => {
                     <dt className="ng-binding">+86 138****9453</dt>
                   </dl>
                   <ul>
-                    <router-link className="order" tag="li" to="/account">
-                      <a href="javascript:void(0)">我的订单</a>
-                    </router-link>
+                    <li class="order">
+                      <Link className="order" tag="li" to="/account">
+                        我的订单
+                      </Link>
+                    </li>
                     <li className="support">
                       <a href="javascript:void(0)">售后服务</a>
                     </li>
@@ -109,4 +111,7 @@ const HeaderNav = () => {
   );
 };
 
-export default connect(null, null)(HeaderNav);
+export default connect(
+  null,
+  null
+)(HeaderNav);

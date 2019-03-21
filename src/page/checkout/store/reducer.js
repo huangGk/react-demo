@@ -50,6 +50,13 @@ export default (state = defaultState, action) => {
         'orderInfo',
         state.get('orderInfo').unshift(action.data)
       );
+    case constants.isPay: // 订单支付，支付成功把isPay改为true
+      return state.set('orderInfo', state.get('orderInfo').map(item => {
+        if (item.get('orderId') === action.orderId) {
+          return item.set('isPay', true)
+        }
+        return item;
+      }))
     default:
       return state;
   }
