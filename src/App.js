@@ -50,7 +50,7 @@ class App extends Component {
                 <Route path="/cart" component={Cart} />
                 <Route path="/checkout" component={CheckOut} />
                 <Route path="/payment/:orderId" component={Payment} />
-                <Route path="/Account" component={Account} />
+                <Route path="/account" component={Account} />
               </Switch>
             </div>
           </BrowserRouter>

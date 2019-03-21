@@ -258,3 +258,18 @@
   visibility: visible;
   opacity: 1;
 }
+.verify-error {
+  display: block;
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  z-index: 5;
+  padding: 0 9px;
+  border-radius: 5px;
+  line-height: 26px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  background: #e66157;
+  opacity: 1;
+}

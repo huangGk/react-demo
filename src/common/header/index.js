@@ -24,7 +24,7 @@ const HeaderNav = () => {
                     <dt className="ng-binding">+86 138****9453</dt>
                   </dl>
                   <ul>
-                    <li class="order">
+                    <li className="order">
                       <Link className="order" tag="li" to="/account">
                         我的订单
                       </Link>
@@ -39,7 +39,7 @@ const HeaderNav = () => {
                       <a href="javascript:void(0)">账户资料</a>
                     </li>
                     <li className="address">
-                      <a href="javascript:void(0)">收货地址</a>
+                      <Link to='/account/address'>收货地址</Link>
                     </li>
                     <li className="logout">
                       <a href="javascript:void(0)">退出</a>

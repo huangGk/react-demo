@@ -93,7 +93,7 @@ class CheckOut extends Component {
       receiveInfo: receive,
       isPay: false
     };
-    history.push(`/payment/${data.orderId }`);
+    history.push(`/payment/${data.orderId}`);
     submitOrder(data);
   };
 

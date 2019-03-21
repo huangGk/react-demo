@@ -7,8 +7,21 @@ class AddressPop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isdefault: false,
-      phone: '',
+      receive: {
+        id: '',
+        name: '', //收货人姓名
+        phone: '', //收货人电话
+        areaCode: '', //区号
+        landLine: '', //固定电话
+        provinceId: 0, //省份id
+        province: '', //省份名字
+        cityId: 0, //城市id
+        city: '', //城市名字
+        countyId: 0, //市辖区id
+        county: '', //市辖区名字
+        add: '', //详细地址
+        default: false //是否为默认选中的地址
+      },
       phoneError: false,
       cityList: [],
       countyList: []
@@ -18,19 +31,55 @@ class AddressPop extends Component {
     this.props.getlist();
   }
   checkDefault = () => {
+    // 切换是否默认地址
+    console.log(this.state.receive.default);
     this.setState({
-      isdefault: !this.state.isdefault
+      receive: Object.assign({}, this.state.receive, {
+        default: !this.state.receive.default
+      })
     });
   };
   changePhone = e => {
+    // 改变电话号码
     this.setState({
-      phone: e.target.value
+      receive: Object.assign({}, this.state.receive, { phone: e.target.value })
+    });
+  };
+  handleName = e => {
+    // 改变收货人姓名
+    this.setState({
+      receive: Object.assign({}, this.state.receive, { name: e.target.value })
+    });
+  };
+  handleAreaCode = e => {
+    // 改变收货区号
+    this.setState({
+      receive: Object.assign({}, this.state.receive, {
+        areaCode: e.target.value
+      })
+    });
+  };
+  handleLandLine = e => {
+    // 改变固定电话
+    this.setState({
+      receive: Object.assign({}, this.state.receive, {
+        landLine: e.target.value
+      })
+    });
+  };
+  handleAdd = e => {
+    // 改变详细地址
+    this.setState({
+      receive: Object.assign({}, this.state.receive, { add: e.target.value })
     });
   };
   inspectPhone = () => {
     // 检查手机号是否合法
     let valid_rule = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/;
-    if (this.state.phone.trim() !== '' && !valid_rule.test(this.state.phone)) {
+    if (
+      this.state.receive.phone.trim() !== '' &&
+      !valid_rule.test(this.state.receive.phone)
+    ) {
       this.setState({
         phoneError: true
       });
@@ -43,34 +92,67 @@ class AddressPop extends Component {
     });
   };
 
-  handleCity = e => {
+  handleProvince = e => {
     // 选择省份后，返回城市列表
+    let value = e.target.value;
+    let province = '';
     let res = this.props.addList
-      .filter(item => parseInt(e.target.value) === item.get('area_id'))
+      .filter(item => {
+        if (parseInt(e.target.value) === item.get('area_id')) {
+          province = item.get('area_name');
+        }
+        return parseInt(e.target.value) === item.get('area_id');
+      })
       .toJS()[0];
     this.setState(() => {
       return {
-        cityList: res.city_list
+        cityList: res.city_list,
+        receive: Object.assign({}, this.state.receive, {
+          provinceId: value,
+          province
+        })
       };
     });
   };
-  handleCounty = e => {
+  handleCity = e => {
     // 选择城市后，返回县级市
-    let res = this.state.cityList.filter(
-      item => parseInt(e.target.value) === item.area_id
-    )[0];
+    let value = e.target.value;
+    let city = '';
+    let res = this.state.cityList.filter(item => {
+      if (parseInt(e.target.value) === item.area_id) {
+        city = item.area_name;
+      }
+      return parseInt(e.target.value) === item.area_id;
+    })[0];
     this.setState({
-      countyList: res.county_list
+      countyList: res.county_list,
+      receive: Object.assign({}, this.state.receive, { cityId: value, city })
+    });
+  };
+  handleCounty = e => {
+    let county = '';
+    let value = e.target.value;
+    this.state.countyList.forEach(item => {
+      if (item.area_id === parseInt(value)) {
+        county = item.area_name;
+      }
+    });
+    this.setState({
+      receive: Object.assign({}, this.state.receive, {
+        countyId: value,
+        county
+      })
     });
   };
   handleSave = () => {
     // 保存地址信息
+    this.props.addAddress(this.state.receive);
     this.props.closePop(false);
   };
 
   render() {
     const { closePop, addList } = this.props;
-    const { isdefault, phoneError, phone, cityList, countyList } = this.state;
+    const { receive, phoneError, cityList, countyList } = this.state;
     return (
       <div id="pop">
         <div className="module-dialog-layer" style={{ display: 'block' }} />
@@ -100,7 +182,8 @@ class AddressPop extends Component {
                             type="text"
                             placeholder="收货人姓名"
                             className="js-verify"
-                            ref={name => (this.name = name)}
+                            value={receive.name}
+                            onChange={this.handleName}
                           />
                           <div className="verify-error" />
                         </div>
@@ -117,7 +200,7 @@ class AddressPop extends Component {
                             type="text"
                             placeholder="手机号"
                             className="js-verify"
-                            value={phone}
+                            value={receive.phone}
                             onChange={this.changePhone}
                             onBlur={this.inspectPhone}
                             onFocus={this.setPhoneError}
@@ -133,7 +216,8 @@ class AddressPop extends Component {
                             type="text"
                             placeholder="区号（可选）"
                             className="js-verify js-address-area-code"
-                            ref={areaCode => (this.areaCode = areaCode)}
+                            value={receive.areaCode}
+                            onChange={this.handleAreaCode}
                           />
                           <div className="verify-error" />
                         </div>
@@ -142,7 +226,8 @@ class AddressPop extends Component {
                             type="text"
                             placeholder="固定电话（可选）"
                             className="js-verify js-address-telephone"
-                            ref={landLine => (this.landLine = landLine)}
+                            value={receive.landLine}
+                            onChange={this.handleLandLine}
                           />
                           <div className="verify-error" />
                         </div>
@@ -151,9 +236,9 @@ class AddressPop extends Component {
                         <div className="form-item-v3 select-item province-wrapper">
                           <select
                             name="province_code"
-                            ref={provinceId => (this.provinceId = provinceId)}
+                            value={receive.provinceId}
                             className="province select-province js-form-province js-verify"
-                            onChange={this.handleCity}
+                            onChange={this.handleProvince}
                           >
                             <option value="0">请选择省份</option>
                             {addList.map(item => (
@@ -171,8 +256,8 @@ class AddressPop extends Component {
                         <div className="form-item-v3 select-item city-wrapper fn-left form-focus-item">
                           <select
                             className="city select-city js-form-city js-verify"
-                            ref={cityId => (this.cityId = cityId)}
-                            onChange={this.handleCounty}
+                            value={receive.cityId}
+                            onChange={this.handleCity}
                           >
                             <option value="0">请选择城市</option>
                             {cityList.map(item => (
@@ -185,7 +270,8 @@ class AddressPop extends Component {
                         <div className="form-item-v3 select-item district-wrapper fn-right form-focus-item">
                           <select
                             className="city select-city js-form-city js-verify"
-                            ref={countyId => (this.countyId = countyId)}
+                            value={receive.countyId}
+                            onChange={this.handleCounty}
                           >
                             <option value="0">请选择区县</option>
                             {countyList.map(item => (
@@ -201,8 +287,9 @@ class AddressPop extends Component {
                           <input
                             type="text"
                             className="js-verify"
-                            ref={add => (this.add = add)}
                             placeholder="详细地址，如街道名称，楼层，门牌号码等"
+                            value={receive.add}
+                            onChange={this.handleAdd}
                           />
                           <div className="verify-error" />
                         </div>
@@ -211,7 +298,7 @@ class AddressPop extends Component {
                         <input type="checkbox" className="hide" />
                         <span
                           className={
-                            isdefault
+                            receive.default
                               ? 'blue-checkbox blue-checkbox-on'
                               : 'blue-checkbox'
                           }

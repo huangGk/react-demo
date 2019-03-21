@@ -4,6 +4,7 @@ import Axios from 'axios';
 
 export const addAddress = data => {
   // 把接口获取到的数据，存储到Redux中
+  data.id = new Date().getTime() // 设置当前地址的id
   return {
     type: constants.addAddress,
     data: fromJS(data)
@@ -45,5 +46,13 @@ export const payNow = orderId => {
   return {
     type: constants.isPay,
     orderId
+  }
+}
+
+export const delAddress = id => {
+  // 删除地址
+  return {
+    type: constants.delAddress,
+    id
   }
 }

@@ -4,6 +4,7 @@ const defaultState = fromJS({
   receiveInfo: [
     {
       // 收货信息
+      id: '1553160754',
       name: '王某某',
       phone: '13811111111',
       areaCode: '010',
@@ -18,6 +19,7 @@ const defaultState = fromJS({
       default: false
     },
     {
+      id: '1553160778',
       name: '李某某',
       phone: '13811111111',
       areaCode: '010',
@@ -51,12 +53,21 @@ export default (state = defaultState, action) => {
         state.get('orderInfo').unshift(action.data)
       );
     case constants.isPay: // 订单支付，支付成功把isPay改为true
-      return state.set('orderInfo', state.get('orderInfo').map(item => {
-        if (item.get('orderId') === action.orderId) {
-          return item.set('isPay', true)
-        }
-        return item;
-      }))
+      return state.set(
+        'orderInfo',
+        state.get('orderInfo').map(item => {
+          if (item.get('orderId') === action.orderId) {
+            return item.set('isPay', true);
+          }
+          return item;
+        })
+      );
+    case constants.delAddress: // 删除某条地址信息
+      console.log(action);
+      return state.set(
+        'receiveInfo',
+        state.get('receiveInfo').filter(item => item.get('id') !== action.id)
+      );
     default:
       return state;
   }
