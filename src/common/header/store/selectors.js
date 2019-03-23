@@ -20,7 +20,7 @@ export const totlePrice = createSelector(
   carPanelData => {
     let price = 0;
     carPanelData.forEach(item => {
-      price += parseFloat(item.get('price'));
+      price += parseFloat(item.get('price')) * parseFloat(item.get('count'));
     });
     return price;
   }

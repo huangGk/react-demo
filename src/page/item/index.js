@@ -49,6 +49,13 @@ class Item extends Component {
       };
     });
   };
+  handleBuyNow = (detail, count) => {
+    // 现在购买
+    const { history, addCarPanelHandle } = this.props;
+    history.push('/cart');
+    addCarPanelHandle(detail, count);
+  };
+
   render() {
     const { detail, addCarPanelHandle, getSkuId } = this.props;
     const { imgIndex, count } = this.state;
@@ -176,7 +183,12 @@ class Item extends Component {
                   >
                     <a>加入购物车</a>
                   </span>
-                  <span className="gray-title-btn">
+                  <span
+                    className="gray-title-btn"
+                    onClick={() => {
+                      this.handleBuyNow(detail, count);
+                    }}
+                  >
                     <a>现在购买</a>
                   </span>
                 </div>
@@ -205,6 +217,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(actionCreate.getList());
     },
     addCarPanelHandle: (detail, count) => {
+      // 添加商品到购物车中
       detail = fromJS(detail);
       dispatch(
         HeaderActionCreate.addcarPanel(
