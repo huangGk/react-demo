@@ -1,0 +1,213 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "sku_id": "100041701",
+      "title": "坚果 3 TPU 软胶保护套",
+      "sub_title": "TPU 环保材质、完美贴合、周到防护",
+      "ali_image": "https://resource.smartisan.com/resource/b899d9b82c4bc2710492a26af021d484.jpg",
+      "price": "49.00",
+      "limit_num": 5,
+      "spec_json": {
+        "show_name": "红色",
+        "image": "https://resource.smartisan.com/resource/56b4e205885892c880b2d27b0338b719.jpg?x-oss-process=image/resize,w_52"
+      },
+      "ali_images": [
+        "https://resource.smartisan.com/resource/b899d9b82c4bc2710492a26af021d484.jpg",
+        "https://resource.smartisan.com/resource/bb8859032d6060ccb4e733a2c8e2f51d.jpg",
+        "https://resource.smartisan.com/resource/95462ecdf8497c76db2efc790c26aead.jpg",
+        "https://resource.smartisan.com/resource/baad1502f470cfa86db5df796f60fda5.jpg",
+        "https://resource.smartisan.com/resource/df5b3d3539481eb1c00333a5bc5b60b6.jpg"
+      ],
+      "sku_list": [
+        {
+          "id": 100041701,
+          "image": "https://resource.smartisan.com/resource/56b4e205885892c880b2d27b0338b719.jpg?x-oss-process=image/resize,w_52",
+          "limit_num": 5,
+          "color": "红色"
+        },
+        {
+          "id": 100041702,
+          "image": "https://resource.smartisan.com/resource/840bd2a56a07cc733253739e0bc88c72.jpg?x-oss-process=image/resize,w_52",
+          "limit_num": 15,
+          "color": "黑色"
+        },
+        {
+          "id": 100041703,
+          "image": "https://resource.smartisan.com/resource/d96431afb5c837d47ca722c8225a814a.jpg?x-oss-process=image/resize,w_52",
+          "limit_num": 10,
+          "color": "米白色"
+        }
+      ]
+    },
+    {
+      "sku_id": "100041702",
+      "title": "坚果 3 TPU 软胶保护套",
+      "sub_title": "TPU 环保材质、完美贴合、周到防护",
+      "ali_image": "https://resource.smartisan.com/resource/72e6435d8aa0a926ccba7bf2899646ff.jpg",
+      "price": "49.00",
+      "limit_num": 15,
+      "spec_json": {
+        "show_name": "黑色",
+        "image": "https://resource.smartisan.com/resource/840bd2a56a07cc733253739e0bc88c72.jpg?x-oss-process=image/resize,w_52"
+      },
+
+      "ali_images": [
+        "https://resource.smartisan.com/resource/72e6435d8aa0a926ccba7bf2899646ff.jpg",
+        "https://resource.smartisan.com/resource/a34295e65302d025997320a5a7757df1.jpg",
+        "https://resource.smartisan.com/resource/15e08acdc6e09018658ee27d0b32ec4c.jpg",
+        "https://resource.smartisan.com/resource/28d26f638b95a54f18ac795a6ec58484.jpg",
+        "https://resource.smartisan.com/resource/a156600aeb975706f0f07d853060fdde.jpg"
+      ],
+
+      "sku_list": [
+        {
+          "id": 100041701,
+          "image": "https://resource.smartisan.com/resource/56b4e205885892c880b2d27b0338b719.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 5,
+          "color": "红色"
+        },
+        {
+          "id": 100041702,
+          "image": "https://resource.smartisan.com/resource/840bd2a56a07cc733253739e0bc88c72.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 15,
+          "color": "黑色"
+        },
+        {
+          "id": 100041703,
+          "image": "https://resource.smartisan.com/resource/d96431afb5c837d47ca722c8225a814a.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 10,
+          "color": "米白色"
+        }
+      ]
+    },
+    {
+      "sku_id": "100041703",
+      "title": "坚果 3 TPU 软胶保护套",
+      "sub_title": "TPU 环保材质、完美贴合、周到防护",
+      "ali_image": "https://resource.smartisan.com/resource/68885df63707b2139d1a1414b73dba83.jpg",
+      "price": "49.00",
+      "limit_num": 10,
+      "spec_json": {
+        "show_name": "米白色",
+        "image": "https://resource.smartisan.com/resource/d96431afb5c837d47ca722c8225a814a.jpg?x-oss-process=image/resize,w_20"
+      },
+
+      "ali_images": [
+        "https://resource.smartisan.com/resource/68885df63707b2139d1a1414b73dba83.jpg",
+        "https://resource.smartisan.com/resource/ddf1ecc107070d47791e3b5a667248ea.jpg",
+        "https://resource.smartisan.com/resource/87ea3888491d172b7d7a0e78e4294b4b.jpg",
+        "https://resource.smartisan.com/resource/9ce48efd038a5e291a0e0c2309aca501.jpg",
+        "https://resource.smartisan.com/resource/8d30265188ddd1ba05e34f669c5dcf1c.jpg"
+      ],
+
+      "sku_list": [
+        {
+          "id": 100041701,
+          "image": "https://resource.smartisan.com/resource/56b4e205885892c880b2d27b0338b719.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 5,
+          "color": "红色"
+        },
+        {
+          "id": 100041702,
+          "image": "https://resource.smartisan.com/resource/840bd2a56a07cc733253739e0bc88c72.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 15,
+          "color": "黑色"
+        },
+        {
+          "id": 100041703,
+          "image": "https://resource.smartisan.com/resource/d96431afb5c837d47ca722c8225a814a.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 10,
+          "color": "米白色"
+        }
+      ]
+    },
+    {
+      "sku_id": "100047301",
+      "title": "坚果蓝牙小黑耳机",
+      "sub_title": "一副干净的蓝牙耳机",
+      "ali_image": "https://resource.smartisan.com/resource/83fe55569c2fcd49bac9a0ef0985be0a.jpg",
+      "price": "99.00",
+      "limit_num": 5,
+      "spec_json": {
+        "show_name": "黑色",
+        "image": "https://resource.smartisan.com/resource/e3ead3b62c6e23b0d68ac42ee421c06d.jpg?x-oss-process=image/resize,w_20"
+      },
+      "ali_images": [
+        "https://resource.smartisan.com/resource/83fe55569c2fcd49bac9a0ef0985be0a.jpg",
+        "https://resource.smartisan.com/resource/22d262d66df75b52f2b424a0e8c570d5.jpg",
+        "https://resource.smartisan.com/resource/1e1f3651a175ac3299fe6e500788dcb8.jpg",
+        "https://resource.smartisan.com/resource/c98f669fe73775f6779c59c691bc7335.jpg"
+      ],
+      "sku_list": [
+        {
+          "id": 100047301,
+          "image": "https://resource.smartisan.com/resource/e3ead3b62c6e23b0d68ac42ee421c06d.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 5,
+          "color": "黑色"
+        },
+        {
+          "id": 100047302,
+          "image": "https://resource.smartisan.com/resource/946fae02f01a9503025609c737bd5f2f.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 6,
+          "color": "白色"
+        }
+      ]
+    },
+    {
+      "sku_id": "100047302",
+      "title": "坚果蓝牙小白耳机",
+      "sub_title": "一副干净的蓝牙耳机",
+      "ali_image": "https://resource.smartisan.com/resource/8eeb26de2cb57d32f0c03bd18458c177.jpg",
+      "price": "99.00",
+      "limit_num": 6,
+      "spec_json": {
+        "show_name": "白色",
+        "image": "https://resource.smartisan.com/resource/946fae02f01a9503025609c737bd5f2f.jpg?x-oss-process=image/resize,w_20"
+      },
+      "ali_images": [
+        "https://resource.smartisan.com/resource/8eeb26de2cb57d32f0c03bd18458c177.jpg",
+        "https://resource.smartisan.com/resource/e00192534afd0fb93b0ab24480674b0d.jpg",
+        "https://resource.smartisan.com/resource/1394482aa59932d16f1afd9c731a8c61.jpg",
+        "https://resource.smartisan.com/resource/0c3f7ef72277e48983ce51ded2789006.jpg"
+      ],
+      "sku_list": [
+        {
+          "id": 100047301,
+          "image": "https://resource.smartisan.com/resource/e3ead3b62c6e23b0d68ac42ee421c06d.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 5,
+          "color": "黑色"
+        },
+        {
+          "id": 100047302,
+          "image": "https://resource.smartisan.com/resource/946fae02f01a9503025609c737bd5f2f.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 6,
+          "color": "白色"
+        }
+      ]
+    },
+    {
+      "sku_id": "100042101",
+      "title": "坚果 3 前屏钢化玻璃保护膜",
+      "sub_title": "超强透光率、耐刮花、防指纹",
+      "ali_image": "https://resource.smartisan.com/resource/3a7522290397a9444d7355298248f197.jpg",
+      "price": "49.00",
+      "limit_num": 5,
+      "spec_json": {
+        "show_name": "透明",
+        "image": "https://resource.smartisan.com/resource/c65c33048ffc567a1a0922abdbef3a6e.jpg?x-oss-process=image/resize,w_20"
+      },
+      "ali_images": [
+        "https://resource.smartisan.com/resource/3a7522290397a9444d7355298248f197.jpg"
+      ],
+      "sku_list": [
+        {
+          "id": 100042101,
+          "image": "https://resource.smartisan.com/resource/c65c33048ffc567a1a0922abdbef3a6e.jpg?x-oss-process=image/resize,w_20",
+          "limit_num": 5,
+          "color": "灰色"
+        }
+      ]
+    }
+  ]
+}
