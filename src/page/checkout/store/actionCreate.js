@@ -21,7 +21,7 @@ export const AddList = data => {
 export const getAddList = () => {
   // 获取地址列表
   return dispatch => {
-    Axios.get('/api/addList.json')
+    Axios.get('api/addList.json')
       .then(res => {
         if (res.data.code === 0) {
           dispatch(AddList(res.data.data));

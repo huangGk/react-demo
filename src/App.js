@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderNav from './common/header';
 import './reset.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from './loading';
 import { Provider } from 'react-redux';
@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <BrowserRouter>
+          <HashRouter>
             <div>
               <HeaderNav />
               <Switch>
@@ -53,7 +53,7 @@ class App extends Component {
                 <Route path="/account" component={Account} />
               </Switch>
             </div>
-          </BrowserRouter>
+          </HashRouter>
         </div>
       </Provider>
     );

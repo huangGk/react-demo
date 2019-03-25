@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actionCreate } from '../header/store';
-
+import PropTypes from 'prop-types';
 import './index.css';
 
 const Prompt = props => {
@@ -55,6 +55,11 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Dialog.propTypes = {
+  maxOff: PropTypes.bool,
+  closePrompt: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

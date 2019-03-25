@@ -25,7 +25,7 @@ const HeaderNav = () => {
                   </dl>
                   <ul>
                     <li className="order">
-                      <Link className="order" tag="li" to="/account">
+                      <Link className="order" tag="li" to="/account/order">
                         我的订单
                       </Link>
                     </li>

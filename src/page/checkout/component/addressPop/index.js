@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import { connect } from 'react-redux';
 import { actionCreate } from '../../store';
+import PropTypes from 'prop-types';
 
 class AddressPop extends Component {
   constructor(props) {
@@ -146,6 +147,18 @@ class AddressPop extends Component {
   };
   handleSave = () => {
     // 保存地址信息
+    const {
+      name,
+      phone,
+      provinceId,
+      cityId,
+      countyId,
+      add
+    } = this.state.receive;
+    if (!name && !phone && !provinceId && !cityId && !countyId && !add) {
+      alert('请填写完整的收货信息');
+      return;
+    }
     this.props.addAddress(this.state.receive);
     this.props.closePop(false);
   };
@@ -341,6 +354,14 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+AddressPop.propTypes = {
+  // 类型判断
+  getlist: PropTypes.func,
+  addAddress: PropTypes.func,
+  closePop: PropTypes.func,
+  addList: PropTypes.object // immutable对象
+}
 
 export default connect(
   mapStateToProps,

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { selectors, actionCreate } from './store';
 import { Link } from 'react-router-dom';
 import { actionCreate as HeaderActionCreate } from '../../common/header/store';
+import PropTypes from 'prop-types';
 
 import './style.css';
 import { fromJS } from 'immutable';
@@ -229,6 +230,13 @@ const mapDispatchToProps = dispatch => {
       );
     }
   };
+};
+
+Item.propTypes = {
+  getSkuId: PropTypes.func,
+  getList: PropTypes.func,
+  addCarPanelHandle: PropTypes.func,
+  detail: PropTypes.object
 };
 
 export default connect(

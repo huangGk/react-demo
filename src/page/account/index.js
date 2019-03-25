@@ -22,10 +22,10 @@ const Account = props => {
                 <ul className="account-nav">
                   <li
                     className={
-                      location.pathname === '/account/' ? 'current' : ''
+                      location.pathname === '/account/order' ? 'current' : ''
                     }
                   >
-                    <Link to={`${match.url}/`}>我的订单</Link>
+                    <Link to={`${match.url}/order`}>我的订单</Link>
                   </li>
                   <li
                     className={
@@ -39,7 +39,7 @@ const Account = props => {
             </div>
           </div>
           <div className="account-content">
-            <Route path={`${match.url}/`} component={Order} exact />
+            <Route path={`${match.url}/order`} component={Order} exact />
             <Route path={`${match.url}/address`} component={Address} />
           </div>
         </div>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { actionCreate } from './store';
 import Dialog from '../../common/prompt/index';
 import './style.css';
+import PropTypes from 'prop-types';
 
 class Shop extends Component {
   componentDidMount() {
@@ -58,6 +59,12 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Shop.propTypes = {
+  getShopList: PropTypes.func,
+  list: PropTypes.object
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

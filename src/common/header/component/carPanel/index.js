@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectors, actionCreate } from '../../store';
+import PropTypes from 'prop-types';
 
 const CartEmpty = () => {
   return (
@@ -158,6 +159,16 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+CarPanel.propTypes = {
+  delCarPanelHandle: PropTypes.func,
+  showCarHandle: PropTypes.func,
+  hideCarHandle: PropTypes.func,
+  cartShow: PropTypes.bool,
+  count: PropTypes.number,
+  totlePrice: PropTypes.number,
+  carPanelData: PropTypes.object
+}
 
 export default connect(
   mapStateToProps,

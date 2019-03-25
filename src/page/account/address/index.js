@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { actionCreate } from '../../checkout/store';
 import AddressPop from '../../checkout/component/addressPop';
 import './style.css';
+import PropTypes from 'prop-types';
 
 class Address extends Component {
   constructor(props) {
@@ -93,6 +94,11 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Address.propTypes = {
+  receiveInfo: PropTypes.array,
+  delAddress: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

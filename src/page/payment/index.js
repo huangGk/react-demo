@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { actionCreate } from '../checkout/store'
 import './style.css';
+import PropTypes from 'prop-types';
 
 class Payment extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Payment extends Component {
   payNowHandle = () => {
     const { payNow, history } = this.props;
     const { orderInfo } = this.state;
-    history.push(`/account`); // 跳转到account路由
+    history.push(`/account/order`); // 跳转到account路由
     alert(`支付成功${orderInfo.price + orderInfo.freight}元`);
     payNow(orderInfo.orderId);
   };
@@ -154,6 +155,11 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Payment.propTypes = {
+  payNow: PropTypes.func,
+  orderList: PropTypes.array
+}
 
 export default withRouter(
   connect(

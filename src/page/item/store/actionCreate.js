@@ -18,7 +18,7 @@ export const getSkuId = id => {
 
 export const getList = () => {
   return dispatch => {
-    Axios.get('/api/item.json')
+    Axios.get('api/item.json')
       .then(res => {
         if (res.data.code === 0) {
           dispatch(changeList(res.data.data))

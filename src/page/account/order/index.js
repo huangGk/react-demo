@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './style.css';
+import propTypes from 'prop-types';
 
 const Order = props => {
   const { orderList } = props;
@@ -125,6 +126,10 @@ const mapStateToProps = state => {
   return {
     orderList: state.getIn(['Checkout', 'orderInfo']).toJS()
   };
+};
+
+Order.propTypes = {
+  orderList: propTypes.array
 };
 
 export default connect(

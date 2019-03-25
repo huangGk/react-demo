@@ -4,6 +4,7 @@ import { actionCreate } from '../../common/header/store';
 import { Link } from 'react-router-dom';
 import Item from './component/Item';
 import CartBottom from './component/cartBottom';
+import PropTypes from 'prop-types';
 
 import './style.css';
 
@@ -128,6 +129,16 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Cart.prototypes = {
+  carPanelData: PropTypes.object,
+  subCarPanel: PropTypes.func,
+  plusCarPanelData: PropTypes.func,
+  delCarPanelItem: PropTypes.func,
+  checkItem: PropTypes.func,
+  delCheckAll: PropTypes.func,
+  checkAll: PropTypes.func
+}
 
 export default connect(
   mapStateToProps,

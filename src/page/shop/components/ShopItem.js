@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actionCreate } from '../../../common/header/store';
+import PropTypes from 'prop-types';
 
 class ShopItem extends Component {
   constructor(props) {
@@ -103,6 +104,12 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+ShopItem.propTypes = {
+  item: PropTypes.object,
+  addCarPanelHandle: PropTypes.func
+}
+
 export default connect(
   null,
   mapDispatchToProps

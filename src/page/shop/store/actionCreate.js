@@ -11,7 +11,7 @@ const changeList = data => {
 
 export const getList = () => {
   return dispatch => {
-    Axios.get('/api/shopList.json')
+    Axios.get('api/shopList.json')
       .then(res => {
         if (res.data.code === 0) {
           dispatch(changeList(res.data.data));
