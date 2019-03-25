@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/react-demo/static/js/5.48081043.chunk.js"
   },
   {
-    "revision": "a5554e41a827ce4598b6",
+    "revision": "9c9cd2e07061d1a1b5e6",
     "url": "/react-demo/static/css/main.04a7120a.chunk.css"
   },
   {
-    "revision": "453334c41bc3640ea5f5",
-    "url": "/react-demo/static/js/runtime~main.900ab85a.js"
+    "revision": "092edf672833caf2f9e8",
+    "url": "/react-demo/static/js/runtime~main.cbb66343.js"
   },
   {
     "revision": "1a3a92d55685cc48be78",
@@ -20,39 +20,39 @@ self.__precacheManifest = [
     "url": "/react-demo/static/media/cart-box-empty.f25b2c8c.png"
   },
   {
-    "revision": "2d3224941164b8431225",
-    "url": "/react-demo/static/js/3.91f51c0b.chunk.js"
+    "revision": "94466c135f5a4355eaaf",
+    "url": "/react-demo/static/js/3.f51be76c.chunk.js"
   },
   {
     "revision": "00b79aea90705960523fed49f62621a7",
     "url": "/react-demo/static/media/ui.00b79aea.png"
   },
   {
-    "revision": "058f3594f49bfaae683e",
-    "url": "/react-demo/static/js/4.a30411e3.chunk.js"
+    "revision": "1e05f315c607f0cc0006",
+    "url": "/react-demo/static/js/4.df098c0f.chunk.js"
   },
   {
-    "revision": "2af1f5f1bdbdb25854dc",
-    "url": "/react-demo/static/js/8.99f4e57b.chunk.js"
+    "revision": "6c4bfddde6f719fa5d59",
+    "url": "/react-demo/static/js/8.d9983a01.chunk.js"
   },
   {
-    "revision": "a5554e41a827ce4598b6",
-    "url": "/react-demo/static/js/main.660a6988.chunk.js"
+    "revision": "9c9cd2e07061d1a1b5e6",
+    "url": "/react-demo/static/js/main.1e5a2a02.chunk.js"
   },
   {
-    "revision": "f824ae62d3f249268ab8",
-    "url": "/react-demo/static/js/7.be24ea04.chunk.js"
+    "revision": "22b891badb4f5dfc9e72",
+    "url": "/react-demo/static/js/7.073d6c6b.chunk.js"
   },
   {
     "revision": "a8c26bd472aadbe12068",
     "url": "/react-demo/static/js/6.fb999422.chunk.js"
   },
   {
-    "revision": "2af1f5f1bdbdb25854dc",
+    "revision": "6c4bfddde6f719fa5d59",
     "url": "/react-demo/static/css/8.f1dfc5f3.chunk.css"
   },
   {
-    "revision": "f824ae62d3f249268ab8",
+    "revision": "22b891badb4f5dfc9e72",
     "url": "/react-demo/static/css/7.04b23d48.chunk.css"
   },
   {
@@ -64,15 +64,15 @@ self.__precacheManifest = [
     "url": "/react-demo/static/css/5.9f145e85.chunk.css"
   },
   {
-    "revision": "058f3594f49bfaae683e",
+    "revision": "1e05f315c607f0cc0006",
     "url": "/react-demo/static/css/4.65c7a85a.chunk.css"
   },
   {
-    "revision": "2d3224941164b8431225",
+    "revision": "94466c135f5a4355eaaf",
     "url": "/react-demo/static/css/3.3c9ee5dc.chunk.css"
   },
   {
-    "revision": "4e5cc58997991b4671423ef7f5128abd",
+    "revision": "6babcbdf164685f05f04a109ad6791d2",
     "url": "/react-demo/index.html"
   }
 ];
